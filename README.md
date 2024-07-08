@@ -1,7 +1,3 @@
-Certainly! Here's the updated README with the added EDA section:
-
----
-
 # Sentiment Analysis Web Application
 
 ## Overview
@@ -79,7 +75,3 @@ Use the web interface to input movie reviews and get sentiment predictions. You 
 
 - The IMDB dataset used in this project is sourced from [Kaggle](https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews).
 - Special thanks to the developers of the libraries and tools used in this project.
-
----
-
-Feel free to adjust the description and formatting according to your preferences!
