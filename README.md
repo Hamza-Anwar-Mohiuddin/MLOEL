@@ -68,7 +68,7 @@ Use the web interface to input movie reviews and get sentiment predictions. You 
 ├── preprocessed_IMDBDataset.csv   # Preprocessed dataset
 ├── requirements.txt         # Required packages
 └── README.md                # This file
-
+```
 
 ## Acknowledgments
 
