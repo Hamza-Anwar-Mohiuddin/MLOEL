@@ -1,3 +1,6 @@
+Certainly! Here's the updated README with the added EDA section:
+
+---
 
 # Sentiment Analysis Web Application
 
@@ -34,6 +37,9 @@ This project is a web application for sentiment analysis of movie reviews using 
 2. Run the script to train the models and save the preprocessed data and models:
 
 
+## Exploratory Data Analysis (EDA)
+
+Explore the initial data analysis and preprocessing steps performed on the IMDB dataset using this [Colab Notebook](https://colab.research.google.com/drive/1UGUCZoDV7iCFFD8te3k__13NgcdVOxrK?usp=drive_link).
 
 ### Running the Web Application
 
@@ -48,7 +54,6 @@ python app.py
 ### Predicting Sentiment
 
 Use the web interface to input movie reviews and get sentiment predictions. You can also use the `/predict` API endpoint with a POST request to predict sentiment programmatically.
-
 
 ## Project Structure
 
@@ -67,7 +72,7 @@ Use the web interface to input movie reviews and get sentiment predictions. You 
 ├── preprocessed_IMDBDataset.csv   # Preprocessed dataset
 ├── requirements.txt         # Required packages
 └── README.md                # This file
-```
+
 
 
 ## Acknowledgments
@@ -76,3 +81,5 @@ Use the web interface to input movie reviews and get sentiment predictions. You 
 - Special thanks to the developers of the libraries and tools used in this project.
 
 ---
+
+Feel free to adjust the description and formatting according to your preferences!
