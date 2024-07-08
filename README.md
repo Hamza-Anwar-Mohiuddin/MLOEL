@@ -70,7 +70,6 @@ Use the web interface to input movie reviews and get sentiment predictions. You 
 └── README.md                # This file
 
 
-
 ## Acknowledgments
 
 - The IMDB dataset used in this project is sourced from [Kaggle](https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews).
