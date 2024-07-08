@@ -1,105 +1,78 @@
-Sure, here is a sample README for your project:
 
----
-
-# Manual Naive Bayes and Logistic Regression Classifiers
-
-This project implements two machine learning classifiers from scratch: Naive Bayes and Logistic Regression. The classifiers are tested on the IMDB dataset for sentiment analysis of movie reviews.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Usage](#usage)
-- [Implementation Details](#implementation-details)
-- [Results](#results)
-
-
+# Sentiment Analysis Web Application
 
 ## Overview
 
-The goal of this project is to demonstrate the inner workings of two popular machine learning algorithms by implementing them from scratch:
-- Naive Bayes Classifier
-- Logistic Regression Classifier
+This project is a web application for sentiment analysis of movie reviews using Logistic Regression and Naive Bayes models. The application processes and predicts the sentiment (Positive/Negative) of movie reviews using machine learning models. It includes manual implementations of Logistic Regression and Naive Bayes, as well as their counterparts from the `scikit-learn` library for comparison.
 
-The project also includes data preprocessing steps to prepare the IMDB dataset for training and testing the classifiers.
+## Features
 
+- **Manual Implementation of Logistic Regression**
+- **Manual Implementation of Naive Bayes**
+- **Integration with `scikit-learn`'s Logistic Regression and Naive Bayes**
+- **Data Preprocessing including Lemmatization and Stop Words Removal**
+- **TF-IDF Vectorization**
+- **Model Training and Evaluation**
+- **Flask Web Application for Sentiment Prediction**
+
+## Prerequisites
+
+- Python 3.7+
+- Flask
+- NLTK
+- NumPy
+- Pandas
+- Scikit-learn
+- Tqdm
 
 ## Usage
 
-### Training and Testing the Models
+### Training Models
 
-Run the main script to preprocess the data, train the models, and evaluate their performance:
+1. Ensure you have the `IMDBDataset.csv` file in the project directory.
 
-```sh
-python main.py
+2. Run the script to train the models and save the preprocessed data and models:
+
+
+
+### Running the Web Application
+
+1. Start the Flask application:
+
+```bash
+python app.py
 ```
+
+2. Open your web browser and go to `http://127.0.0.1:5000`.
 
 ### Predicting Sentiment
 
-You can use the trained models to predict the sentiment of custom movie reviews:
-
-```sh
-python predict.py
-```
-
-You'll be prompted to enter a movie review, and the script will output the predicted sentiment.
-
-## Implementation Details
-
-### Naive Bayes Classifier
-
-The Naive Bayes classifier assumes that the features are conditionally independent given the class. This implementation uses Gaussian Naive Bayes, where the likelihood of the features is assumed to be Gaussian.
-
-#### Key Methods
-
-- `fit(X, y)`: Fits the model to the training data.
-- `predict(X)`: Predicts the class labels for the given input samples.
-- `_predict(x)`: Computes the posterior probability for each class and returns the class with the highest probability.
-- `_pdf(class_idx, x)`: Computes the probability density function for the given class and sample.
-
-### Logistic Regression Classifier
-
-The Logistic Regression classifier models the probability that an instance belongs to a particular class using the logistic function.
-
-#### Key Methods
-
-- `fit(X, y)`: Fits the model to the training data using gradient descent.
-- `predict(X)`: Predicts the class labels for the given input samples.
-- `_sigmoid(x)`: Computes the sigmoid function for the given input.
-
-## Results
-
-After training the models on the IMDB dataset, their performance is evaluated using accuracy and classification reports. The results are displayed in the console output.
-
-### Example Output
-
-```sh
-Manual Logistic Regression:
-Accuracy: 0.85
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.85      0.84      0.85       100
-           1       0.85      0.86      0.85       100
-
-    accuracy                           0.85       200
-   macro avg       0.85      0.85      0.85       200
-weighted avg       0.85      0.85      0.85       200
+Use the web interface to input movie reviews and get sentiment predictions. You can also use the `/predict` API endpoint with a POST request to predict sentiment programmatically.
 
 
-Manual Naive Bayes:
-Accuracy: 0.83
-Classification Report:
-              precision    recall  f1-score   support
+## Project Structure
 
-           0       0.84      0.82      0.83       100
-           1       0.83      0.84      0.83       100
-
-    accuracy                           0.83       200
-   macro avg       0.83      0.83      0.83       200
-weighted avg       0.83      0.83      0.83       200
+```bash
+.
+├── app.py                   # Flask web application
+├── train.py                 # Script to train models
+├── preprocess.py            # Data preprocessing functions
+├── models.py                # Manual implementations of models
+├── templates
+│   └── index.html           # HTML template for the web application
+├── SavedModels              # Directory to save/load models
+│   ├── tfidf_vectorizer.pkl
+│   ├── log_reg_model.pkl
+│   └── nb_model.pkl
+├── preprocessed_IMDBDataset.csv   # Preprocessed dataset
+├── requirements.txt         # Required packages
+└── README.md                # This file
 ```
 
 
+## Acknowledgments
 
-This README provides a comprehensive overview of your project, including instructions for installation, usage, and a brief description of the key components and results. Adjust the sections and contents as needed to match your project specifics.
+- The IMDB dataset used in this project is sourced from [Kaggle](https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews).
+- Special thanks to the developers of the libraries and tools used in this project.
+
+---
