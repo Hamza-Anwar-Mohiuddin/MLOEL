@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 30vw;
+        }
+        textarea {
+            width: 90%;
+            height: 100px;
+            padding: 2%;
+            border-radius: 14px;
+            border: 1px solid #ccc;
+            margin: 4% 0% ;
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 2px solid black;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover:enabled {
+            background: #3299ff;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Review Sentiment</h1>
+        <form id="review-form">
+            <textarea id="review" placeholder="Enter your review here..."></textarea>
+            <button type="submit" id="analyze-button" disabled>Analyze Sentiment</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        const reviewTextarea = document.getElementById('review');
+        const analyzeButton = document.getElementById('analyze-button');
+
+        reviewTextarea.addEventListener('input', function() {
+            analyzeButton.disabled = reviewTextarea.value.trim() === '';
+        });
+
+        document.getElementById('review-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const review = reviewTextarea.value;
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ review: review })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = `Sentiment: ${data.sentiment}`;
+                document.getElementById('result').style.color = data.sentiment === 'Positive' ? 'green' : 'red';
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
